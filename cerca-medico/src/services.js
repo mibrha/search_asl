@@ -1,6 +1,6 @@
-import { useState , useEffect, useRef} from 'react';
+import { useState , useEffect} from 'react';
 import axios from 'axios';
-import { OpenStreetMapProvider, EsriProvider } from 'leaflet-geosearch';
+import {  EsriProvider } from 'leaflet-geosearch';
 
 
 export function useGetMedici(initalUrl) {
@@ -15,7 +15,7 @@ export function useGetMedici(initalUrl) {
         }
     })
         .catch(function (error) {
-            console.log(error);
+            console.error("did not fetch", error);
         });}, [urlRichiesta]);
     
     
@@ -26,17 +26,39 @@ export function useGetMedici(initalUrl) {
 
 
 export  function useGeosearch(searchText) {
-    const [location, setLocation] = useState({lat : 0, long : 0, address :""});
-    const [searhTerm, setSearchTerm] = useState(searchText)
+    const [location, setLocation] = useState(null);
+    const [searchTerm, setSearchTerm] = useState(searchText)
     
-    const provider = new EsriProvider() ;
     
 
         useEffect( () => {
+
+            const provider = new EsriProvider() ;
+            let loading = false;
+            const baseMaessage = 'no addrress found for' + ' ' + searchTerm
+            setLocation(null);
+            provider.search({query : searchTerm}).then( result => {
+                if (!loading) {
+                    if (result.length >=1 ) {
+                    setLocation({ lat : result[0].x, long : result[0].y})
+                    }
+                    else {
+                        setLocation({ lat : 0 , long : 0 , address : baseMaessage})
+                    }
+                }
+            });
+            return () => {
+                loading = true
+            };}, [searchTerm] )
+            console.log(location)
+        
+            return [location , searchTerm, setSearchTerm]
             
-           
             
-            const locat = async() => { const loc = await provider.search({query : searchText})
+        /**    
+            async function fetchLocation() { 
+                setLocation(null);
+                const result = await provider.search({query : searchText})
         .then( (respo) => {
             
         if (respo.length >=1) {
@@ -48,11 +70,13 @@ export  function useGeosearch(searchText) {
         .catch(function (error) {
             console.log(error);
         });}
+
         locat()
         
         }, [searhTerm]);
-        
-        return [location,setSearchTerm ]
+        **/
+
+       
     
 
 }

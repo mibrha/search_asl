@@ -7,17 +7,26 @@ import Badge from 'react-bootstrap/Badge';
 import { useGeosearch } from './services';
 
 
-function AmbulaTorio( {ambulatorio_data,idMedico, ambulatorioSetter, centroSetter}) {
+function AmbulaTorio( {ambulatorio_data,idMedico, ambulatorioSelected, centroSetter}) {
   const idAmbu =  idMedico + "_" + ambulatorio_data.ubicazione
   const indirizzo = ambulatorio_data.ubicazione
+  const ambuRef = useRef(null)
+
+
   function handleShowOnMap(e) {
     e.preventDefault();
     console.log(e)
-    ambulatorioSetter(idAmbu)
     centroSetter(ambulatorio_data.ubicazione)
+    
+    
+   
   
+  } 
   
-  }    
+  if (ambulatorioSelected === idAmbu && ambuRef.current) {
+    ambuRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
+
+  }
   
     return (
         <Card key={idAmbu} id={idAmbu} onClick={handleShowOnMap}>
@@ -92,15 +101,15 @@ return (
 
 
 
-function Ambulatori({ambulatori, showambulatori, idMedico, ambulatorioSetter, centroSetter={centroSetter}}) {
+function Ambulatori({ambulatori, showambulatori, idMedico, ambulatorioSelected, centroSetter={centroSetter}}) {
 const ambushow = [];
 
 
 
 ambulatori.forEach((ambulatorio) => {
-  if (showambulatori === true) {
+  if (showambulatori === true | ambulatorioSelected === idMedico+ '_'+ambulatorio.ubicazione) {
     ambushow.push(
-      <AmbulaTorio ambulatorio_data={ambulatorio} ambulatorioSetter={ambulatorioSetter} idMedico={idMedico} centroSetter={centroSetter}/>
+      <AmbulaTorio ambulatorio_data={ambulatorio} idMedico={idMedico} ambulatorioSelected={ambulatorioSelected} centroSetter={centroSetter}/>
     )
   };
   if (showambulatori === false) {
@@ -118,7 +127,7 @@ return (
 
 
 
-export default function MeDicoCard({medico_data, medicoSelected, medicoSetter, ambulatorioSelected, ambulatorioSetter, centroSetter}) {
+export default function MeDicoCard({medico_data, medicoSelected, medicoSetter, centroSetter, ambulatorioSelected, ambulatorioSetter}) {
     const [showAmbulatori, setShowAmbulatori] = useState(false);
     const nome_cognome = medico_data.nome + " " + medico_data.cognome;
     const ambulatori = [];
@@ -131,6 +140,7 @@ export default function MeDicoCard({medico_data, medicoSelected, medicoSetter, a
       };
       if (showAmbulatori === true) {
         setShowAmbulatori(false);
+        ambulatorioSetter('')
       }
     }
 
@@ -142,8 +152,9 @@ export default function MeDicoCard({medico_data, medicoSelected, medicoSetter, a
     }
 
     if (medicoSelected === medico_data.id && medRef.current) {
-      medRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
-
+      
+      medRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' })
+  
     }
   
     return (
@@ -154,8 +165,9 @@ export default function MeDicoCard({medico_data, medicoSelected, medicoSetter, a
           <Card.Text>
           {medico_data.tipologia === "PLS" ? ("Pediatra"):("Medico")}  --- {medico_data.ambito}
           </Card.Text>
-          <Button variant="primary" onClick={handleshow}>Mostra Ambulatori</Button>
-          <Ambulatori ambulatori={medico_data.ambulatori} showambulatori={showAmbulatori} idMedico={medico_data.id} ambulatorioSetter={ambulatorioSetter} centroSetter={centroSetter} />
+          <Button variant="primary" onClick={handleshow}>{!showAmbulatori ? 'Mostra Ambulatori' : 'Nascondi'}</Button>
+          <Ambulatori ambulatori={medico_data.ambulatori} showambulatori={showAmbulatori} idMedico={medico_data.id} 
+          centroSetter={centroSetter} ambulatorioSelected={ambulatorioSelected} />
         </Card.Body>
       </Card>
     )

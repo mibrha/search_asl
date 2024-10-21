@@ -1,16 +1,18 @@
 
-import { useState } from 'react';
+import {  useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import Tab from 'react-bootstrap/Tab';
+import Tabs from 'react-bootstrap/Tabs';
 import Container from 'react-bootstrap/Container';
 import comuniData from './comuni.json';
-import RicercaMedico from './listamappa';
 import Button from 'react-bootstrap/Button';
 import MeDicoCard from './SelezionMedico';
-import axios from 'axios';
 import {useGetMedici, useGeosearch} from './services' ;
 import Mappissima from './listamappa';
+
+
 
 
 
@@ -22,42 +24,83 @@ return (
 }
 
 
-function ComuniSelect({code_asl, comuneSetter, centerSetter}) {
+function ComuniSelect({code_asl,comune, comuneSetter, centerSetter}) {
     const comuni = comuniData[code_asl];
     const scelte = [];
+    console.log("in comune", comuni)
     comuni.forEach( (comune) => {
         scelte.push(
-            < OptionItem nome_option={comune} /> 
+            < OptionItem nome_option={comune}  key={comune} /> 
         )
 
     });
 
-    return (<div><h3>Comune</h3><Form.Select aria-label="default"  onChange={(e)=> {comuneSetter(e.target.value); centerSetter(e.target.value)}} > 
+    return (<><Form.Select aria-label="default" onChange={(e)=> {
+        comuneSetter(e.target.value); centerSetter(e.target.value)}} > 
         {scelte}
-        </Form.Select></div> 
+        </Form.Select></> 
     )
 }
 
+function MapTabs({aslSetter, comuneSetter, centerSetter}) {
 
+    function handleAslchange(e) {
+        const comuneBase = comuniData[e][0]
+        aslSetter(e);
+        comuneSetter(comuneBase)
+        centerSetter(comuneBase)
+
+    }
+
+
+    return (
+        <Tabs
+        defaultActiveKey="1813960"
+        id="aslSelect"
+        className="mb-3"
+        fill
+        onSelect={(e) => handleAslchange(e)} >
+      
+        <Tab eventKey="1813960" title="Asl Toscana Centro"      >
+        </Tab>
+        <Tab eventKey="1813961" title="Azienda Usl Toscana nord ovest"   >
+        </Tab>
+        <Tab eventKey="1813962" title="Azienda Usl Toscana sud est"      >
+        </Tab>
+        </Tabs>
+    )
+}
 
 
 export default function Ricerca() {
     const [selezioneAsl, setSelezioneAsl ] =  useState('1813960');
     const [selezioneComune, setSelezioneComune ] = useState('Firenze');
-    const [selezioneTipoMedico, setSelezioneTipoMedico] = useState('MMG');
+    
+    const [selezioneTipoMedico, setSelezioneTipoMedico] = useState('PLS');
     const [selectedMedico, setSelectedMedico ] = useState("")
     const [ambulatorioSelected, setAmbulatorioSelected] = useState("")
-    const [center , setCenter ] = useState('Firenze')
-    const [listaMedici, fetchUrl] = useGetMedici("");  /**--useState([]);**/
+    
+    const [location,  center , setCenter ] = useGeosearch('Firenze')
+    const [listaMedici, fetchUrl] = useGetMedici( "https://servizi.estar.toscana.it/adiba/ambulatori.php?a=0&tipologia="+ selezioneTipoMedico + "&azienda=" + selezioneAsl +"&comune="+selezioneComune);  /**--useState([]);**/
     const medicishow = [];
     console.log(selectedMedico)
+    console.log("this is center", center )
     listaMedici.forEach((medico) => {
-        medicishow.push(<MeDicoCard medico_data={medico} medicoSelected={selectedMedico} medicoSetter={setSelectedMedico} centroSetter={setCenter} ambulatorioSetter={setAmbulatorioSelected}/>);
+        medicishow.push(<MeDicoCard medico_data={medico} key={medico} medicoSelected={selectedMedico} 
+            medicoSetter={setSelectedMedico} centroSetter={setCenter} 
+            ambulatorioSelected={ambulatorioSelected} ambulatorioSetter={setAmbulatorioSelected}
+           />);
     });
+    
+
+    console.log("medicData cambiato", listaMedici.length, selezioneAsl)
+
+    
 
     function handleRicerca(e) {
         e.preventDefault();
         fetchUrl( "https://servizi.estar.toscana.it/adiba/ambulatori.php?a=0&tipologia="+ selezioneTipoMedico + "&azienda=" + selezioneAsl +"&comune="+selezioneComune) ;
+        
         /**const 
         console.log(urlCall);
         axios.get(urlCall)
@@ -75,63 +118,71 @@ export default function Ricerca() {
     return (
         <> 
             <Container fluid >
-                <Row>
-                <Container fluid >
             <Row  >
-            <Col>
-            <Form>
-               
-        <h3>Asl</h3><Form.Select aria-label="Azienda Usl Toscana centro"  onChange={(e) => setSelezioneAsl(e.target.value)}   >
-            <option value="1813960">Azienda Usl Toscana centro</option>
-            <option value="1813961">Azienda Usl Toscana nord ovest</option>
-            <option value="1813962">Azienda Usl Toscana sud est</option>
-        </Form.Select>
-        </Form>
-        </Col>
-        
-        <Col>
-        
-        <Form onChange={(e)=> setSelezioneTipoMedico(e.target.value)}>
+            
+            <Col >
+            <Row>
+            < MapTabs aslSetter={setSelezioneAsl} comuneSetter={setSelezioneComune} centerSetter={setCenter}/>
+            </Row>
+            <Row>
+            <Col >
+                <ComuniSelect 
+            code_asl={selezioneAsl}
+            comuneSetter={setSelezioneComune} comune={selezioneComune} centerSetter={setCenter}/>
+                </Col>
+                <Col >
+                <Form onChange={(e)=> setSelezioneTipoMedico(e.target.value)}>
         <Form.Check // prettier-ignore
+            inline
             type="radio"
             id="pds_mmg_1"
             name="group1"
             label="Pediatra"
-            value="PLS" />
+            value="PLS" 
+            defaultChecked='true'/>
           <Form.Check
+          inline
             label="Medico di base"
             name="group1"
             type="radio"
             value="MMG"
             id="pds_mmg_1" />
              <Form.Check
+             inline
+             
             label="Entrambi"
             name="group1"
             type="radio"
             value=""
             id="pds_mmg_1" />
         </Form>
+                </Col>
+                
+            </Row>
+        
         </Col>
-        <Col>
-            <ComuniSelect 
-            code_asl={selezioneAsl}
-            comuneSetter={setSelezioneComune} centerSetter={setCenter}/>   
+        
+        <Col  >
+        <Button  size="lg" style={{"height":"100%", "width" :"100%"}}  onClick={handleRicerca}>CERCA</Button>
+        
         </Col>
-        <Button variant="primary" onClick={handleRicerca}>Cerca</Button>
         
         </Row>
-        </Container>
-        </Row>
         <Row>
+            
         <Container fluid>
         <Row >
         
            
-           <Col style={ {'overflow-y' : 'scroll' , height: "90vh"}}>{medicishow}</Col>
+           <Col style={ {'overflowY' : 'scroll' , height: "90vh"}}>{medicishow}</Col>
           
            
-           <Col><Mappissima medicData={listaMedici} comune={selezioneComune} selectedMedico={selectedMedico} medicoSetter={setSelectedMedico}
-            ambulatorioSelected={ambulatorioSelected}  ambulatorioSetter={setAmbulatorioSelected} centro={center} centroSetter={setCenter}/> </Col>
+           <Col>
+          
+           
+           <Mappissima medicData={listaMedici} comune={selezioneComune} selectedMedico={selectedMedico} medicoSetter={setSelectedMedico}
+            ambulatorioSelected={ambulatorioSelected}  ambulatorioSetter={setAmbulatorioSelected} centro={center} centroSetter={setCenter}
+            location={location} key={listaMedici}/> </Col>
         
         
         
