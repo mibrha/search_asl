@@ -1,0 +1,19 @@
+services:
+  medico-app:
+    container_name: ngixreactapp
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 80:80
+      - 443:443
+    restart: always
+    volumes:
+      - ./data/certbot/www:/var/www/certbot/:ro
+      - ./data/certbot/conf/:/etc/letsencrypt/:ro
+  certbot:
+    image: certbot/certbot:latest
+    volumes:
+      - ./data/certbot/www/:/var/www/certbot/:rw
+      - ./data/certbot/conf/:/etc/letsencrypt/:rw
+      - ./certbot/log:/var/log/letsencrypt/:rw

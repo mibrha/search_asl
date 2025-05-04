@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_f4f782a8da9039d5e81b31667d28185c {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_f4f782a8da9039d5e81b31667d28185c" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_f4f782a8da9039d5e81b31667d28185c = L.map(
+                "map_f4f782a8da9039d5e81b31667d28185c",
+                {
+                    center: [43.7697955, 11.2556404],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 13,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_75880165e8c5a1f47eab92ab92073bf1 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_75880165e8c5a1f47eab92ab92073bf1.addTo(map_f4f782a8da9039d5e81b31667d28185c);
+        
+    
+            var marker_cluster_79da84b2bdfef2a27c43fdcde425c68a = L.markerClusterGroup(
+                {}
+            );
+        
+    
+            var marker_3c4883e4d53710058985afa8431f299e = L.marker(
+                [43.7874002, 11.2688228],
+                {}
+            ).addTo(marker_cluster_79da84b2bdfef2a27c43fdcde425c68a);
+        
+    
+            var icon_1cd978d496537c0441cb622cdc296c98 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "house-medical", "iconColor": "white", "markerColor": "orange", "prefix": "fa"}
+            );
+            marker_3c4883e4d53710058985afa8431f299e.setIcon(icon_1cd978d496537c0441cb622cdc296c98);
+        
+    
+        var popup_11b21c71524ffd6b38157fcb286073ba = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_42ab6fb1464f27303dba742d04b8b313 = $(`<div id="html_42ab6fb1464f27303dba742d04b8b313" style="width: 100.0%; height: 100.0%;">MOHAMMAD AL-OMARI  posti disponibili: 2   orario : Lun Mer Gio : 15:30 - 19:30(A); Mar Ven : 10:00 - 13:00(A);    telefono : 055570017  segreteria: 055570017   indirizzo: VIA BORGHINI, 1, FIRENZE</div>`)[0];
+                popup_11b21c71524ffd6b38157fcb286073ba.setContent(html_42ab6fb1464f27303dba742d04b8b313);
+            
+        
+
+        marker_3c4883e4d53710058985afa8431f299e.bindPopup(popup_11b21c71524ffd6b38157fcb286073ba)
+        ;
+
+        
+    
+    
+            var marker_f684a13c725471d4a89b409fae563ab1 = L.marker(
+                [43.793286, 11.2352949],
+                {}
+            ).addTo(marker_cluster_79da84b2bdfef2a27c43fdcde425c68a);
+        
+    
+            var icon_343d6afcb65f166fc1c469b59b17f3de = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "house-medical", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_f684a13c725471d4a89b409fae563ab1.setIcon(icon_343d6afcb65f166fc1c469b59b17f3de);
+        
+    
+        var popup_6be7b82b1325b6a17979b33d1c5f6457 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_63ecb2a246d1c19a83e43b9ff5b9abed = $(`<div id="html_63ecb2a246d1c19a83e43b9ff5b9abed" style="width: 100.0%; height: 100.0%;">RAFFAELE AMMANNATI  posti disponibili: 0   orario : Lun Gio : 15:00 - 19:00(A); Mar Mer Ven : 09:00 - 13:00(A);    telefono : 389-2095219  segreteria: 055-332418   indirizzo: VIA DEL PONTE DI MEZZO, 56, FIRENZE</div>`)[0];
+                popup_6be7b82b1325b6a17979b33d1c5f6457.setContent(html_63ecb2a246d1c19a83e43b9ff5b9abed);
+            
+        
+
+        marker_f684a13c725471d4a89b409fae563ab1.bindPopup(popup_6be7b82b1325b6a17979b33d1c5f6457)
+        ;
+
+        
+    
+    
+            var marker_e6f85688f2486097a604ac1f8009cc00 = L.marker(
+                [43.7935014, 11.2458844],
+                {}
+            ).addTo(marker_cluster_79da84b2bdfef2a27c43fdcde425c68a);
+        
+    
+            var icon_24aa836e8562819f5453c89169c2fb9c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "house-medical", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_e6f85688f2486097a604ac1f8009cc00.setIcon(icon_24aa836e8562819f5453c89169c2fb9c);
+        
+    
+        var popup_abde6e087d402cea5c3697df958fa9c7 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_d2d34f82be8220bfbac8b4a339fecfb6 = $(`<div id="html_d2d34f82be8220bfbac8b4a339fecfb6" style="width: 100.0%; height: 100.0%;">TOMMASO BIANCONI  posti disponibili: 0   orario : Lun Mar Gio : 15:00 - 19:00(A); Mer Ven : 10:00 - 13:00(A);    telefono : 3893428218  segreteria: 3893428218   indirizzo: VIA TAVANTI, 20, FIRENZE</div>`)[0];
+                popup_abde6e087d402cea5c3697df958fa9c7.setContent(html_d2d34f82be8220bfbac8b4a339fecfb6);
+            
+        
+
+        marker_e6f85688f2486097a604ac1f8009cc00.bindPopup(popup_abde6e087d402cea5c3697df958fa9c7)
+        ;
+
+        
+    
+    
+            var marker_802f6d23c0b1c0f3a10f950173651f4f = L.marker(
+                [43.7733305, 11.2186491],
+                {}
+            ).addTo(marker_cluster_79da84b2bdfef2a27c43fdcde425c68a);
+        
+    
+            var icon_4d89bb057e406bd7d8db8f75117daa57 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "house-medical", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_802f6d23c0b1c0f3a10f950173651f4f.setIcon(icon_4d89bb057e406bd7d8db8f75117daa57);
+        
+    
+        var popup_dae7d65de5663435619ae282ea965895 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_e25578af768cdebcda539cbeee7b2569 = $(`<div id="html_e25578af768cdebcda539cbeee7b2569" style="width: 100.0%; height: 100.0%;">CATERINA BONACCINI  posti disponibili: 32   orario : Lun Mer : 16:00 - 19:00(A); Mar Gio Ven : 09:30 - 12:30(A);    telefono : 055712535  segreteria: 055712535   indirizzo: VIA FRANCESCHINI, 10, FIRENZE</div>`)[0];
+                popup_dae7d65de5663435619ae282ea965895.setContent(html_e25578af768cdebcda539cbeee7b2569);
+            
+        
+
+        marker_802f6d23c0b1c0f3a10f950173651f4f.bindPopup(popup_dae7d65de5663435619ae282ea965895)
+        ;
+
+        
+    
+    
+            var marker_386fd07d0dd794de22e4b627c2497029 = L.marker(
+                [43.7830379, 11.2360417],
+                {}
+            ).addTo(marker_cluster_79da84b2bdfef2a27c43fdcde425c68a);
+        
+    
+            var icon_f2702a76d8d029aa1a26a027d6ec2678 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "house-medical", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_386fd07d0dd794de22e4b627c2497029.setIcon(icon_f2702a76d8d029aa1a26a027d6ec2678);
+        
+    
+        var popup_c8160dea07666e79b3fa563c02d84f4e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_fb54ef315d12f5b492fbd700c833128b = $(`<div id="html_fb54ef315d12f5b492fbd700c833128b" style="width: 100.0%; height: 100.0%;">LIETTA CANDURA  posti disponibili: 287   orario : Lun Ven : 11:00 - 13:00(A); Mer : 17:00 - 19:00(A);    telefono : 3407506356  segreteria: 055-366464   indirizzo: VIA SPONTINI, 17, FIRENZE</div>`)[0];
+                popup_c8160dea07666e79b3fa563c02d84f4e.setContent(html_fb54ef315d12f5b492fbd700c833128b);
+            
+        
+
+        marker_386fd07d0dd794de22e4b627c2497029.bindPopup(popup_c8160dea07666e79b3fa563c02d84f4e)
+        ;
+
+        
+    
+    
+            var marker_5d37bd2fa00f915af2e48c574b0bc537 = L.marker(
+                [43.7746633, 11.2874047],
+                {}
+            ).addTo(marker_cluster_79da84b2bdfef2a27c43fdcde425c68a);
+        
+    
+            var icon_658b79e701acd11bedde5c0b61df16f8 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "house-medical", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_5d37bd2fa00f915af2e48c574b0bc537.setIcon(icon_658b79e701acd11bedde5c0b61df16f8);
+        
+    
+        var popup_afe93168e4d17ed01cdd46a6f9e765f6 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_739b7948579a2b52034c558f7932c043 = $(`<div id="html_739b7948579a2b52034c558f7932c043" style="width: 100.0%; height: 100.0%;">LINA DE JESUS CANTINI  posti disponibili: 0   orario : Lun : 08:30 - 12:30(A); 15:00 - 19:00(A); Mar Mer : 10:00 - 14:00(A); 15:00 - 19:00(A); Gio : 08:30 - 13:30(A); Ven : 14:00 - 19:00(A);    telefono : 3290329058  segreteria: 3290329058   indirizzo: VIA GABRIELE D'ANNUNZIO, 29 c/o presidio asl A.P., FIRENZE</div>`)[0];
+                popup_afe93168e4d17ed01cdd46a6f9e765f6.setContent(html_739b7948579a2b52034c558f7932c043);
+            
+        
+
+        marker_5d37bd2fa00f915af2e48c574b0bc537.bindPopup(popup_afe93168e4d17ed01cdd46a6f9e765f6)
+        ;
+
+        
+    
+    
+            var marker_4bae08b4a8301fe5e8714df14af8ea0e = L.marker(
+                [43.7938197, 10.9277198],
+                {}
+            ).addTo(marker_cluster_79da84b2bdfef2a27c43fdcde425c68a);
+        
+    
+            var icon_d18302e81c970eec8accb75b25f5bbca = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "house-medical", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_4bae08b4a8301fe5e8714df14af8ea0e.setIcon(icon_d18302e81c970eec8accb75b25f5bbca);
+        
+    
+        var popup_32e0a1ce04fdb498fa06c64c89b5d905 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_57c3a063d7c0989808fa79fe2a0d76c2 = $(`<div id="html_57c3a063d7c0989808fa79fe2a0d76c2" style="width: 100.0%; height: 100.0%;">GUIDO CAPOZZI  posti disponibili: 128   orario : Lun Mer : 08:00 - 12:00(A); Ven : 14:30 - 17:30(A);    telefono : 3495460040  segreteria: 3495460040   indirizzo: VIA PISTOIESE, 11, FIRENZE</div>`)[0];
+                popup_32e0a1ce04fdb498fa06c64c89b5d905.setContent(html_57c3a063d7c0989808fa79fe2a0d76c2);
+            
+        
+
+        marker_4bae08b4a8301fe5e8714df14af8ea0e.bindPopup(popup_32e0a1ce04fdb498fa06c64c89b5d905)
+        ;
+
+        
+    
+    
+            var marker_7c1f38565d6db69c24d6cddf475c22a0 = L.marker(
+                [43.7934057, 11.1678952],
+                {}
+            ).addTo(marker_cluster_79da84b2bdfef2a27c43fdcde425c68a);
+        
+    
+            var icon_0f4337e5040d07c49140c99d95b212e7 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "house-medical", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_7c1f38565d6db69c24d6cddf475c22a0.setIcon(icon_0f4337e5040d07c49140c99d95b212e7);
+        
+    
+        var popup_46559df32dacf009095ac82e17ed7353 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_2cab9060192912858c2cfe35ca817246 = $(`<div id="html_2cab9060192912858c2cfe35ca817246" style="width: 100.0%; height: 100.0%;">GUIDO CAPOZZI  posti disponibili: 128   orario : Mar : 14:30 - 17:30(A); Gio : 08:00 - 12:00(A);    telefono : 3495460040  segreteria: 3495460040   3495460040   indirizzo: VIA PISTOIESE, 410, FIRENZE</div>`)[0];
+                popup_46559df32dacf009095ac82e17ed7353.setContent(html_2cab9060192912858c2cfe35ca817246);
+            
+        
+
+        marker_7c1f38565d6db69c24d6cddf475c22a0.bindPopup(popup_46559df32dacf009095ac82e17ed7353)
+        ;
+
+        
+    
+    
+            var marker_d04ace92166ebd09113a5a2dffebefbb = L.marker(
+                [43.7580395, 11.2900273],
+                {}
+            ).addTo(marker_cluster_79da84b2bdfef2a27c43fdcde425c68a);
+        
+    
+            var icon_a4f9b3b464bb24201d97f044d892060e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "house-medical", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_d04ace92166ebd09113a5a2dffebefbb.setIcon(icon_a4f9b3b464bb24201d97f044d892060e);
+        
+    
+        var popup_7f907019d26dd785c82344cca07b6e77 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_719be662c5aebbba791def9016240068 = $(`<div id="html_719be662c5aebbba791def9016240068" style="width: 100.0%; height: 100.0%;">FILIPPO CAPPUGI  posti disponibili: 0   orario : Lun Mer Ven : 14:30 - 18:30(A); Mar Gio : 09:30 - 12:30(A);    telefono : 055-0981970  segreteria: 055-0981970   indirizzo: VIA DATINI N.53, FIRENZE</div>`)[0];
+                popup_7f907019d26dd785c82344cca07b6e77.setContent(html_719be662c5aebbba791def9016240068);
+            
+        
+
+        marker_d04ace92166ebd09113a5a2dffebefbb.bindPopup(popup_7f907019d26dd785c82344cca07b6e77)
+        ;
+
+        
+    
+    
+            var marker_11bb20d254f5c001656faf993a2e0ce1 = L.marker(
+                [43.7901181, 11.2449714],
+                {}
+            ).addTo(marker_cluster_79da84b2bdfef2a27c43fdcde425c68a);
+        
+    
+            var icon_8cbdad4c56c69f5bbbfcce9f36282ae5 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "house-medical", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_11bb20d254f5c001656faf993a2e0ce1.setIcon(icon_8cbdad4c56c69f5bbbfcce9f36282ae5);
+        
+    
+        var popup_0c48ab4a2da20a2fce8ed8a8d5b7629f = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_bbe5218b4bd548be78f4b0a7c87b998e = $(`<div id="html_bbe5218b4bd548be78f4b0a7c87b998e" style="width: 100.0%; height: 100.0%;">FLORA CARUSO  posti disponibili: 162   orario : Lun Mer : 15:00 - 19:00(A); Mar : 10:00 - 13:00(A); Gio Ven : 09:30 - 13:00(A);    telefono : 055476087   055485418  segreteria: 055476087   055485418   indirizzo: VIA MILANESI, 83, FIRENZE</div>`)[0];
+                popup_0c48ab4a2da20a2fce8ed8a8d5b7629f.setContent(html_bbe5218b4bd548be78f4b0a7c87b998e);
+            
+        
+
+        marker_11bb20d254f5c001656faf993a2e0ce1.bindPopup(popup_0c48ab4a2da20a2fce8ed8a8d5b7629f)
+        ;
+
+        
+    
+    
+            var marker_1183bf65ee0d1dfab10e694502c2125f = L.marker(
+                [43.7733305, 11.2186491],
+                {}
+            ).addTo(marker_cluster_79da84b2bdfef2a27c43fdcde425c68a);
+        
+    
+            var icon_dbf04091103b863f4d7ad58b20ed83c4 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "house-medical", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_1183bf65ee0d1dfab10e694502c2125f.setIcon(icon_dbf04091103b863f4d7ad58b20ed83c4);
+        
+    
+        var popup_261896a06356b301ba76c4ae138ae1ee = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_3d30cdd1b9c8a14aa55e91cf50a50c9e = $(`<div id="html_3d30cdd1b9c8a14aa55e91cf50a50c9e" style="width: 100.0%; height: 100.0%;">GIOVANNA CURRADI  posti disponibili: 0   orario : Lun Gio : 09:30 - 13:00(A); Mar Ven : 15:00 - 19:00(A); Mer : 09:30 - 12:30(A);    telefono : 3490898418   055712535  segreteria: 055712535   indirizzo: VIA BALDASSARRE FRANCESCHINI, 10, FIRENZE</div>`)[0];
+                popup_261896a06356b301ba76c4ae138ae1ee.setContent(html_3d30cdd1b9c8a14aa55e91cf50a50c9e);
+            
+        
+
+        marker_1183bf65ee0d1dfab10e694502c2125f.bindPopup(popup_261896a06356b301ba76c4ae138ae1ee)
+        ;
+
+        
+    
+    
+            var marker_b3a846ca9def2e0ea102bf172e65ab22 = L.marker(
+                [43.7857311, 11.2491403],
+                {}
+            ).addTo(marker_cluster_79da84b2bdfef2a27c43fdcde425c68a);
+        
+    
+            var icon_f7ec3c1578bdcdb2ae2cc9c56669eab2 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "house-medical", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_b3a846ca9def2e0ea102bf172e65ab22.setIcon(icon_f7ec3c1578bdcdb2ae2cc9c56669eab2);
+        
+    
+        var popup_e67b29049e852378c1d3cf8b04db2019 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_5429b37ead59caeea0fe1e38c1ca1262 = $(`<div id="html_5429b37ead59caeea0fe1e38c1ca1262" style="width: 100.0%; height: 100.0%;">SIMONETTA DIVITO  posti disponibili: 325   orario : Lun Mer Gio : 09:30 - 12:30(A); Mar Ven : 15:30 - 18:30(A);    telefono : 3249262294  per appuntamento: 055487082  segreteria: 3249262294  per appuntamento: 055487082   indirizzo: VIA DELLE CINQUE GIORNATE, 34, FIRENZE</div>`)[0];
+                popup_e67b29049e852378c1d3cf8b04db2019.setContent(html_5429b37ead59caeea0fe1e38c1ca1262);
+            
+        
+
+        marker_b3a846ca9def2e0ea102bf172e65ab22.bindPopup(popup_e67b29049e852378c1d3cf8b04db2019)
+        ;
+
+        
+    
+    
+            var marker_42bedce326a7e98716724d6ddbb81680 = L.marker(
+                [43.7939946, 11.2299138],
+                {}
+            ).addTo(marker_cluster_79da84b2bdfef2a27c43fdcde425c68a);
+        
+    
+            var icon_6655707c24669b6f744dcc5364cd42fd = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "house-medical", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_42bedce326a7e98716724d6ddbb81680.setIcon(icon_6655707c24669b6f744dcc5364cd42fd);
+        
+    
+        var popup_6f85b0a696b4fa550549de9de53d05f0 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_7a166139512f786960057830a5286733 = $(`<div id="html_7a166139512f786960057830a5286733" style="width: 100.0%; height: 100.0%;">RITA DONATI  posti disponibili: 23   orario : Lun Gio : 10:00 - 14:00(A); Mar Ven : 15:00 - 19:00(A); Mer : 11:30 - 13:30(A);    telefono : 055415713 3393511108  segreteria: 055415713   indirizzo: VIA C. ALFIERI DI SOSTEGNO, 9, FIRENZE</div>`)[0];
+                popup_6f85b0a696b4fa550549de9de53d05f0.setContent(html_7a166139512f786960057830a5286733);
+            
+        
+
+        marker_42bedce326a7e98716724d6ddbb81680.bindPopup(popup_6f85b0a696b4fa550549de9de53d05f0)
+        ;
+
+        
+    
+    
+            var marker_50f7dfea261f4f239f7805b2d166633e = L.marker(
+                [43.7938197, 10.9277198],
+                {}
+            ).addTo(marker_cluster_79da84b2bdfef2a27c43fdcde425c68a);
+        
+    
+            var icon_45f804fe857e96b0c1bf9175466f0f4e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "house-medical", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_50f7dfea261f4f239f7805b2d166633e.setIcon(icon_45f804fe857e96b0c1bf9175466f0f4e);
+        
+    
+        var popup_bd49cf96aace65969b7e0728c6c65890 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_4ff28e6e9565a94f70d66c7a955855a0 = $(`<div id="html_4ff28e6e9565a94f70d66c7a955855a0" style="width: 100.0%; height: 100.0%;">CLAUDIA FANCELLI  posti disponibili: 38   orario : Lun Mer Ven : 10:00 - 13:30(A); Mar : 15:00 - 19:00(A); Gio : 15:00 - 18:30(A);    telefono : 055318872   0554646099  segreteria: 055318872   0554646099   indirizzo: VIA PISTOIESE, 11, FIRENZE</div>`)[0];
+                popup_bd49cf96aace65969b7e0728c6c65890.setContent(html_4ff28e6e9565a94f70d66c7a955855a0);
+            
+        
+
+        marker_50f7dfea261f4f239f7805b2d166633e.bindPopup(popup_bd49cf96aace65969b7e0728c6c65890)
+        ;
+
+        
+    
+    
+            var marker_7b0b34383d57bef9b52656db1e126715 = L.marker(
+                [43.7861358, 11.2290382],
+                {}
+            ).addTo(marker_cluster_79da84b2bdfef2a27c43fdcde425c68a);
+        
+    
+            var icon_e5fca33b0e881dad4d19d6b258924adc = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "house-medical", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_7b0b34383d57bef9b52656db1e126715.setIcon(icon_e5fca33b0e881dad4d19d6b258924adc);
+        
+    
+        var popup_dc625fffc397a21d4c09cf379fc1c6c6 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_dd284a9e84d50537bcebdcdf6e6c231d = $(`<div id="html_dd284a9e84d50537bcebdcdf6e6c231d" style="width: 100.0%; height: 100.0%;">MARTA GENEROSO  posti disponibili: 0   orario : Lun Gio Ven : 14:30 - 18:30(A); Mar Mer : 09:00 - 13:00(A);    telefono : 377-5043026  segreteria:    indirizzo: VIA BOCCHERINI, 8, FIRENZE</div>`)[0];
+                popup_dc625fffc397a21d4c09cf379fc1c6c6.setContent(html_dd284a9e84d50537bcebdcdf6e6c231d);
+            
+        
+
+        marker_7b0b34383d57bef9b52656db1e126715.bindPopup(popup_dc625fffc397a21d4c09cf379fc1c6c6)
+        ;
+
+        
+    
+    
+            var marker_ae0d347565dc7282a2671cdbcb0c7371 = L.marker(
+                [43.7635708, 11.2741122],
+                {}
+            ).addTo(marker_cluster_79da84b2bdfef2a27c43fdcde425c68a);
+        
+    
+            var icon_6575106336dde08a6488539bd0261945 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "house-medical", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_ae0d347565dc7282a2671cdbcb0c7371.setIcon(icon_6575106336dde08a6488539bd0261945);
+        
+    
+        var popup_cf7297334c24c821fa3a2fa284e3c04a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_017dad3d5a5c543c3f642e707d74d5c9 = $(`<div id="html_017dad3d5a5c543c3f642e707d74d5c9" style="width: 100.0%; height: 100.0%;">VALERIA PALMA LAURIOLA  posti disponibili: 0   orario : Lun Mar Gio : 15:30 - 18:30(A); Mer Ven : 09:30 - 13:00(A);    telefono : 3884892543  segreteria: 055686431   3884892543   indirizzo: VIA DI RICORBOLI, 8, FIRENZE</div>`)[0];
+                popup_cf7297334c24c821fa3a2fa284e3c04a.setContent(html_017dad3d5a5c543c3f642e707d74d5c9);
+            
+        
+
+        marker_ae0d347565dc7282a2671cdbcb0c7371.bindPopup(popup_cf7297334c24c821fa3a2fa284e3c04a)
+        ;
+
+        
+    
+    
+            var marker_fa17e5977d1a7aa1ce0121036a62ebf0 = L.marker(
+                [43.763294, 11.2780881],
+                {}
+            ).addTo(marker_cluster_79da84b2bdfef2a27c43fdcde425c68a);
+        
+    
+            var icon_f2c596f1d5f0a398cc6ca1d7f54fb8a4 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "house-medical", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_fa17e5977d1a7aa1ce0121036a62ebf0.setIcon(icon_f2c596f1d5f0a398cc6ca1d7f54fb8a4);
+        
+    
+        var popup_cda3e1863a9f05eb80b34d2a0f491042 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_b21426854f950745f49911f32c45133a = $(`<div id="html_b21426854f950745f49911f32c45133a" style="width: 100.0%; height: 100.0%;">MARIA CRISTINA MANONI  posti disponibili: 95   orario : Lun : 14:00 - 18:00(A); Mer : 09:00 - 13:30(A); Ven : 09:00 - 13:00(A);    telefono : 0556812689   0556581126  segreteria: 0556812689   0556581126   indirizzo: VIA G. P. ORSINI, 26/R, FIRENZE</div>`)[0];
+                popup_cda3e1863a9f05eb80b34d2a0f491042.setContent(html_b21426854f950745f49911f32c45133a);
+            
+        
+
+        marker_fa17e5977d1a7aa1ce0121036a62ebf0.bindPopup(popup_cda3e1863a9f05eb80b34d2a0f491042)
+        ;
+
+        
+    
+    
+            var marker_e69ca510fa32ef7e8ab61975ceb9b169 = L.marker(
+                [43.764218, 11.2618715],
+                {}
+            ).addTo(marker_cluster_79da84b2bdfef2a27c43fdcde425c68a);
+        
+    
+            var icon_94812e80d8f3c64e35c2abdd38764d01 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "house-medical", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_e69ca510fa32ef7e8ab61975ceb9b169.setIcon(icon_94812e80d8f3c64e35c2abdd38764d01);
+        
+    
+        var popup_a2d97323ed3b26d2cd11ef87862a4c30 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_f30b112956b002aa6a03087e3b031f75 = $(`<div id="html_f30b112956b002aa6a03087e3b031f75" style="width: 100.0%; height: 100.0%;">MARIA CRISTINA MANONI  posti disponibili: 95   orario : Mar : 15:00 - 17:00(A); Gio : 09:00 - 12:30(A);    telefono : 0552469051  segreteria: 0552469051   indirizzo: VIA SAN NICCOLO', FIRENZE</div>`)[0];
+                popup_a2d97323ed3b26d2cd11ef87862a4c30.setContent(html_f30b112956b002aa6a03087e3b031f75);
+            
+        
+
+        marker_e69ca510fa32ef7e8ab61975ceb9b169.bindPopup(popup_a2d97323ed3b26d2cd11ef87862a4c30)
+        ;
+
+        
+    
+    
+            var marker_51bc43f5f164ce6fb8e2104c65e2aa5b = L.marker(
+                [43.793286, 11.2352949],
+                {}
+            ).addTo(marker_cluster_79da84b2bdfef2a27c43fdcde425c68a);
+        
+    
+            var icon_97915e5eb6d4068ddc124e8275801ca9 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "house-medical", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_51bc43f5f164ce6fb8e2104c65e2aa5b.setIcon(icon_97915e5eb6d4068ddc124e8275801ca9);
+        
+    
+        var popup_422f2fd6f6db1744c2bd9f2bb77443f3 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_2c52a9bdc6e557e349f26743c7249a68 = $(`<div id="html_2c52a9bdc6e557e349f26743c7249a68" style="width: 100.0%; height: 100.0%;">MARIA TERESA MONTE  posti disponibili: 101   orario : Lun Gio : 09:00 - 13:00(A); Mar Mer Ven : 15:00 - 19:00(A);    telefono : 389-2095219  segreteria: 055-332418   indirizzo: VIA PONTE DI MEZZO, 56, FIRENZE</div>`)[0];
+                popup_422f2fd6f6db1744c2bd9f2bb77443f3.setContent(html_2c52a9bdc6e557e349f26743c7249a68);
+            
+        
+
+        marker_51bc43f5f164ce6fb8e2104c65e2aa5b.bindPopup(popup_422f2fd6f6db1744c2bd9f2bb77443f3)
+        ;
+
+        
+    
+    
+            var marker_74877899bbb12be55f38faf0da999b6a = L.marker(
+                [43.77884, 11.2950578],
+                {}
+            ).addTo(marker_cluster_79da84b2bdfef2a27c43fdcde425c68a);
+        
+    
+            var icon_291ecb07f4d4daf8ae456172fc62ae5c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "house-medical", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_74877899bbb12be55f38faf0da999b6a.setIcon(icon_291ecb07f4d4daf8ae456172fc62ae5c);
+        
+    
+        var popup_cd1216fc4c32a120bcc29f8d573c199b = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_6f542f83ceee76091a2043728101f021 = $(`<div id="html_6f542f83ceee76091a2043728101f021" style="width: 100.0%; height: 100.0%;">LUCA MUGNAINI  posti disponibili: 0   orario : Lun : 09:30 - 13:30(A); Mar Gio : 15:00 - 19:00(A); Mer Ven : 09:30 - 12:30(A);    telefono : 055604780  segreteria: 055604780   indirizzo: VIALE E. DUSE, 12, FIRENZE</div>`)[0];
+                popup_cd1216fc4c32a120bcc29f8d573c199b.setContent(html_6f542f83ceee76091a2043728101f021);
+            
+        
+
+        marker_74877899bbb12be55f38faf0da999b6a.bindPopup(popup_cd1216fc4c32a120bcc29f8d573c199b)
+        ;
+
+        
+    
+    
+            var marker_ec5a07b33362d3c98fb754fd5b619ca6 = L.marker(
+                [43.7794076, 11.2677484],
+                {}
+            ).addTo(marker_cluster_79da84b2bdfef2a27c43fdcde425c68a);
+        
+    
+            var icon_09034a0264c2f196ac044097ecaaf472 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "house-medical", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_ec5a07b33362d3c98fb754fd5b619ca6.setIcon(icon_09034a0264c2f196ac044097ecaaf472);
+        
+    
+        var popup_99aa830f3922e38a011f2af84edfdaf5 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_1428ce1498b0382d5068cb4cfcbcf5ee = $(`<div id="html_1428ce1498b0382d5068cb4cfcbcf5ee" style="width: 100.0%; height: 100.0%;">GIUSTINA CARMELA GIULIA ORLANDO  posti disponibili: 503   orario : Lun Mar : 17:00 - 19:00(A); Gio : 16:30 - 19:00(A);    telefono : 3427956733  segreteria: 3427956733   indirizzo: VIA PIER CAPPONI, 4/R, FIRENZE</div>`)[0];
+                popup_99aa830f3922e38a011f2af84edfdaf5.setContent(html_1428ce1498b0382d5068cb4cfcbcf5ee);
+            
+        
+
+        marker_ec5a07b33362d3c98fb754fd5b619ca6.bindPopup(popup_99aa830f3922e38a011f2af84edfdaf5)
+        ;
+
+        
+    
+    
+            var marker_a6c0fada2bf82baa829d08083227e81c = L.marker(
+                [43.7817057, 11.236484],
+                {}
+            ).addTo(marker_cluster_79da84b2bdfef2a27c43fdcde425c68a);
+        
+    
+            var icon_49ae12f36577ef55ca3997455a637481 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "house-medical", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_a6c0fada2bf82baa829d08083227e81c.setIcon(icon_49ae12f36577ef55ca3997455a637481);
+        
+    
+        var popup_c869086255f9b76e3b47e87ae41ee68f = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_09b6ddcb6e34fa94162eb4f0ef913047 = $(`<div id="html_09b6ddcb6e34fa94162eb4f0ef913047" style="width: 100.0%; height: 100.0%;">GIUSTINA CARMELA GIULIA ORLANDO  posti disponibili: 503   orario : Mar : 09:00 - 11:00(A);    telefono : 3427956733  segreteria: 3427956733   indirizzo: VIA BENEDETTO MARCELLO, 4, FIRENZE</div>`)[0];
+                popup_c869086255f9b76e3b47e87ae41ee68f.setContent(html_09b6ddcb6e34fa94162eb4f0ef913047);
+            
+        
+
+        marker_a6c0fada2bf82baa829d08083227e81c.bindPopup(popup_c869086255f9b76e3b47e87ae41ee68f)
+        ;
+
+        
+    
+    
+            var marker_fd53383e42f02fc067ccbe7cefe7e516 = L.marker(
+                [43.7746633, 11.2874047],
+                {}
+            ).addTo(marker_cluster_79da84b2bdfef2a27c43fdcde425c68a);
+        
+    
+            var icon_0b59a8ecd1d3398fd7a3fe92dd8d4eb3 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "house-medical", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_fd53383e42f02fc067ccbe7cefe7e516.setIcon(icon_0b59a8ecd1d3398fd7a3fe92dd8d4eb3);
+        
+    
+        var popup_56248aed59f21735316905d97eca21ca = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_5dc119660227f89a1bb6189f1dbcaf3d = $(`<div id="html_5dc119660227f89a1bb6189f1dbcaf3d" style="width: 100.0%; height: 100.0%;">LUDOVICA PALERMO  posti disponibili: 0   orario : Lun Mer : 16:00 - 19:00(A); Mar : 10:00 - 13:00(A); Gio : 10:00 - 14:00(A); Ven : 14:00 - 16:00(A);    telefono : 3311521709  segreteria: 351-8079585 (per appuntamenti)   indirizzo: VIA D'ANNUNZIO, 29 c/o presidio asl A.P., FIRENZE</div>`)[0];
+                popup_56248aed59f21735316905d97eca21ca.setContent(html_5dc119660227f89a1bb6189f1dbcaf3d);
+            
+        
+
+        marker_fd53383e42f02fc067ccbe7cefe7e516.bindPopup(popup_56248aed59f21735316905d97eca21ca)
+        ;
+
+        
+    
+    
+            var marker_3c8ddc8d7af1d0e621ee499fd8e22e4f = L.marker(
+                [43.7719719, 11.2667076],
+                {}
+            ).addTo(marker_cluster_79da84b2bdfef2a27c43fdcde425c68a);
+        
+    
+            var icon_5bbd69ab5412f2c12b467d3757330055 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "house-medical", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_3c8ddc8d7af1d0e621ee499fd8e22e4f.setIcon(icon_5bbd69ab5412f2c12b467d3757330055);
+        
+    
+        var popup_8d4b23778ba070f2e4b453b53c020fe6 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_6466b7c4d7f04e983496458e70f203fb = $(`<div id="html_6466b7c4d7f04e983496458e70f203fb" style="width: 100.0%; height: 100.0%;">LUDOVICA PALERMO  posti disponibili: 0   orario : Mer : 11:30 - 13:30(A); Ven : 10:00 - 13:00(A);    telefono : 331-1521709  segreteria: 351-8079585 (per appuntamenti)   indirizzo: VIA CARDUCCI, 8, FIRENZE</div>`)[0];
+                popup_8d4b23778ba070f2e4b453b53c020fe6.setContent(html_6466b7c4d7f04e983496458e70f203fb);
+            
+        
+
+        marker_3c8ddc8d7af1d0e621ee499fd8e22e4f.bindPopup(popup_8d4b23778ba070f2e4b453b53c020fe6)
+        ;
+
+        
+    
+    
+            var marker_2fd8d44b0fd744a3c1fb238f3dcacb7f = L.marker(
+                [43.763294, 11.2780881],
+                {}
+            ).addTo(marker_cluster_79da84b2bdfef2a27c43fdcde425c68a);
+        
+    
+            var icon_28c16267cac2f0452005f2935e9c9cff = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "house-medical", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_2fd8d44b0fd744a3c1fb238f3dcacb7f.setIcon(icon_28c16267cac2f0452005f2935e9c9cff);
+        
+    
+        var popup_aabcdc21541a2728ff1ac9b03d6ff2de = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_5428600be27f51f62f70022993c55627 = $(`<div id="html_5428600be27f51f62f70022993c55627" style="width: 100.0%; height: 100.0%;">ANTONIO PAOLETTI  posti disponibili: 92   orario : Mar : 11:00 - 12:00(A); 16:00 - 19:00(A); Gio : 11:00 - 12:00(A); 16:00 - 19:30(A);    telefono : 055686002  segreteria: 0556812689 0556581126   indirizzo: VIA GIAMPAOLO ORSINI, 26R, FIRENZE</div>`)[0];
+                popup_aabcdc21541a2728ff1ac9b03d6ff2de.setContent(html_5428600be27f51f62f70022993c55627);
+            
+        
+
+        marker_2fd8d44b0fd744a3c1fb238f3dcacb7f.bindPopup(popup_aabcdc21541a2728ff1ac9b03d6ff2de)
+        ;
+
+        
+    
+    
+            var marker_025f95c2f1690a3b0c4f5650991c37ea = L.marker(
+                [43.7733305, 11.2186491],
+                {}
+            ).addTo(marker_cluster_79da84b2bdfef2a27c43fdcde425c68a);
+        
+    
+            var icon_9b3ad41d48912fe6104209e5e33fe23b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "house-medical", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_025f95c2f1690a3b0c4f5650991c37ea.setIcon(icon_9b3ad41d48912fe6104209e5e33fe23b);
+        
+    
+        var popup_604f1b6842d5ace5ffc2714de2e1b074 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_3807c97e861b9991503272ff10bdf648 = $(`<div id="html_3807c97e861b9991503272ff10bdf648" style="width: 100.0%; height: 100.0%;">ANTONIETTA PASCUZZI  posti disponibili: 305   orario : Lun Mer : 15:30 - 19:30(A); Mar Ven : 09:30 - 12:30(A); Gio : 16:00 - 19:00(A);    telefono : 3319627966  segreteria: 055716794 3384898053   indirizzo: VIA BALDASSARRE FRANCESCHINI, 10, FIRENZE</div>`)[0];
+                popup_604f1b6842d5ace5ffc2714de2e1b074.setContent(html_3807c97e861b9991503272ff10bdf648);
+            
+        
+
+        marker_025f95c2f1690a3b0c4f5650991c37ea.bindPopup(popup_604f1b6842d5ace5ffc2714de2e1b074)
+        ;
+
+        
+    
+    
+            var marker_884ca7bfa7a26ef35e58b70df7aa83ce = L.marker(
+                [43.7967406, 11.240013],
+                {}
+            ).addTo(marker_cluster_79da84b2bdfef2a27c43fdcde425c68a);
+        
+    
+            var icon_84f5adcfda4144be78b2286f65192c79 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "house-medical", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_884ca7bfa7a26ef35e58b70df7aa83ce.setIcon(icon_84f5adcfda4144be78b2286f65192c79);
+        
+    
+        var popup_a84e7d26bc0bbaa0d318b8b0177b871f = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_eaca74c1046f44e97bbcfcd307da1c11 = $(`<div id="html_eaca74c1046f44e97bbcfcd307da1c11" style="width: 100.0%; height: 100.0%;">PAOLO PICCININI  posti disponibili: 78   orario : Lun Mar : 10:00 - 13:00(A); Mer Gio Ven : 15:00 - 19:00(A);    telefono : 331-2752555  segreteria: 0554360912   indirizzo: PIAZZA DALMAZIA 19, FIRENZE</div>`)[0];
+                popup_a84e7d26bc0bbaa0d318b8b0177b871f.setContent(html_eaca74c1046f44e97bbcfcd307da1c11);
+            
+        
+
+        marker_884ca7bfa7a26ef35e58b70df7aa83ce.bindPopup(popup_a84e7d26bc0bbaa0d318b8b0177b871f)
+        ;
+
+        
+    
+    
+            var marker_27fb38375eb87e0d2cdddee08ed44cee = L.marker(
+                [43.7788241, 11.2009912],
+                {}
+            ).addTo(marker_cluster_79da84b2bdfef2a27c43fdcde425c68a);
+        
+    
+            var icon_2f8a418b0dae743fccf545331deddd03 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "house-medical", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_27fb38375eb87e0d2cdddee08ed44cee.setIcon(icon_2f8a418b0dae743fccf545331deddd03);
+        
+    
+        var popup_365444bad1c9e885c9b9e978edf39ffc = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_c477b651fab6cd9c594d49be136d307c = $(`<div id="html_c477b651fab6cd9c594d49be136d307c" style="width: 100.0%; height: 100.0%;">ANNA LUCIA PISCITELLI  posti disponibili: 349   orario : Lun Mer Ven : 10:00 - 13:00(A); Mar Gio : 16:00 - 19:00(A);    telefono : 3290808984  segreteria: 055-7331091   indirizzo: VIA DEI BASSI 39/B, FIRENZE</div>`)[0];
+                popup_365444bad1c9e885c9b9e978edf39ffc.setContent(html_c477b651fab6cd9c594d49be136d307c);
+            
+        
+
+        marker_27fb38375eb87e0d2cdddee08ed44cee.bindPopup(popup_365444bad1c9e885c9b9e978edf39ffc)
+        ;
+
+        
+    
+    
+            var marker_f287048329440688f9d0fb99318fb7f6 = L.marker(
+                [43.75177, 11.1765307],
+                {}
+            ).addTo(marker_cluster_79da84b2bdfef2a27c43fdcde425c68a);
+        
+    
+            var icon_f810838df01177d50706523a272214f2 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "house-medical", "iconColor": "white", "markerColor": "orange", "prefix": "fa"}
+            );
+            marker_f287048329440688f9d0fb99318fb7f6.setIcon(icon_f810838df01177d50706523a272214f2);
+        
+    
+        var popup_421caa4ff1a5672c7774e6590ce9fea1 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_f829e0c8e080c94527977a2e891b8f3b = $(`<div id="html_f829e0c8e080c94527977a2e891b8f3b" style="width: 100.0%; height: 100.0%;">VALENTINA RIZZO  posti disponibili: 5   orario : Lun : 14:00 - 17:00(A); Mar : 15:00 - 19:00(A); Mer Ven : 10:00 - 13:30(A); Gio : 14:30 - 18:30(A);    telefono : 329-3256494  segreteria: 329-3256494   indirizzo: VIA MASACCIO, 50, FIRENZE</div>`)[0];
+                popup_421caa4ff1a5672c7774e6590ce9fea1.setContent(html_f829e0c8e080c94527977a2e891b8f3b);
+            
+        
+
+        marker_f287048329440688f9d0fb99318fb7f6.bindPopup(popup_421caa4ff1a5672c7774e6590ce9fea1)
+        ;
+
+        
+    
+    
+            var marker_c3e709d27bf4bd3ab5ff5bf2c7cbb3d3 = L.marker(
+                [43.7747927, 11.2426385],
+                {}
+            ).addTo(marker_cluster_79da84b2bdfef2a27c43fdcde425c68a);
+        
+    
+            var icon_a6a963861847a5129d6b0080c9045ed6 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "house-medical", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_c3e709d27bf4bd3ab5ff5bf2c7cbb3d3.setIcon(icon_a6a963861847a5129d6b0080c9045ed6);
+        
+    
+        var popup_8d17375cc78221f2d62c78074e04f948 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_9e2503be683ec76be67e3844b6009c1e = $(`<div id="html_9e2503be683ec76be67e3844b6009c1e" style="width: 100.0%; height: 100.0%;">MARIANNA ROMEO  posti disponibili: 203   orario : Lun Mer : 16:00 - 19:30(A); Mar Ven : 10:00 - 13:30(A); Gio : 10:00 - 14:00(A);    telefono : 3387919531  segreteria: 055284076/282195   indirizzo: VIA IL PRATO, 35R, FIRENZE</div>`)[0];
+                popup_8d17375cc78221f2d62c78074e04f948.setContent(html_9e2503be683ec76be67e3844b6009c1e);
+            
+        
+
+        marker_c3e709d27bf4bd3ab5ff5bf2c7cbb3d3.bindPopup(popup_8d17375cc78221f2d62c78074e04f948)
+        ;
+
+        
+    
+    
+            var marker_d298a4bd82f2fe9542d312ed2b9f80d5 = L.marker(
+                [43.8020365, 11.2326605],
+                {}
+            ).addTo(marker_cluster_79da84b2bdfef2a27c43fdcde425c68a);
+        
+    
+            var icon_89891114bc9de31f414b66c0c2326741 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "house-medical", "iconColor": "white", "markerColor": "orange", "prefix": "fa"}
+            );
+            marker_d298a4bd82f2fe9542d312ed2b9f80d5.setIcon(icon_89891114bc9de31f414b66c0c2326741);
+        
+    
+        var popup_2ca4791ffc8ee91377c7e1ef0a40bac3 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_00f543016c52975595175103017d0652 = $(`<div id="html_00f543016c52975595175103017d0652" style="width: 100.0%; height: 100.0%;">CLAUDIA SABATINI  posti disponibili: 9   orario : Lun Mar Ven : 15:00 - 19:00(A); Mer : 10:00 - 12:30(A); 15:30 - 19:00(A); Gio : 10:00 - 12:30(A);    telefono : 3386717757  segreteria: 3386717757   indirizzo: VIA PANCALDO, 3/53, FIRENZE</div>`)[0];
+                popup_2ca4791ffc8ee91377c7e1ef0a40bac3.setContent(html_00f543016c52975595175103017d0652);
+            
+        
+
+        marker_d298a4bd82f2fe9542d312ed2b9f80d5.bindPopup(popup_2ca4791ffc8ee91377c7e1ef0a40bac3)
+        ;
+
+        
+    
+    
+            var marker_936334bdcab80ff94d195eb2177a4d80 = L.marker(
+                [43.7363554, 11.2241434],
+                {}
+            ).addTo(marker_cluster_79da84b2bdfef2a27c43fdcde425c68a);
+        
+    
+            var icon_afaa8dd38fa14172b81efdb6116ad5ec = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "house-medical", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_936334bdcab80ff94d195eb2177a4d80.setIcon(icon_afaa8dd38fa14172b81efdb6116ad5ec);
+        
+    
+        var popup_3d2e6ab1e6f842e603e3059b64ba832c = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_bf80a8f07ba56e042756bd5283dcfb2d = $(`<div id="html_bf80a8f07ba56e042756bd5283dcfb2d" style="width: 100.0%; height: 100.0%;">PAOLA SCARANE  posti disponibili: 50   orario : Lun Mer : 09:00 - 12:30(A); Mar Gio : 14:30 - 18:30(A); Ven : 09:00 - 12:00(A);    telefono : 055-2048000  segreteria: 055-2048000   indirizzo: VIA DEI GIANDONATI, 5, FIRENZE</div>`)[0];
+                popup_3d2e6ab1e6f842e603e3059b64ba832c.setContent(html_bf80a8f07ba56e042756bd5283dcfb2d);
+            
+        
+
+        marker_936334bdcab80ff94d195eb2177a4d80.bindPopup(popup_3d2e6ab1e6f842e603e3059b64ba832c)
+        ;
+
+        
+    
+    
+            var marker_941040cc67ea65872480fdb5adf7bda2 = L.marker(
+                [43.7733305, 11.2186491],
+                {}
+            ).addTo(marker_cluster_79da84b2bdfef2a27c43fdcde425c68a);
+        
+    
+            var icon_44e39cae8fb27cd9bcbf15731bed7440 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "house-medical", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_941040cc67ea65872480fdb5adf7bda2.setIcon(icon_44e39cae8fb27cd9bcbf15731bed7440);
+        
+    
+        var popup_8652b88d28dcef58eece70e6be0a83f4 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_b761d6d5765082d9e8b535c4b7b58199 = $(`<div id="html_b761d6d5765082d9e8b535c4b7b58199" style="width: 100.0%; height: 100.0%;">VLADIMIRA SOLDANO  posti disponibili: 173   orario : Lun Mer : 09:30 - 13:00(A); Mar Gio : 15:00 - 19:00(A); Ven : 15:00 - 18:00(A);    telefono : 3349931398  segreteria: 0557478276   indirizzo: VIA BALDASSARRE FRANCESCHINI, 10, FIRENZE</div>`)[0];
+                popup_8652b88d28dcef58eece70e6be0a83f4.setContent(html_b761d6d5765082d9e8b535c4b7b58199);
+            
+        
+
+        marker_941040cc67ea65872480fdb5adf7bda2.bindPopup(popup_8652b88d28dcef58eece70e6be0a83f4)
+        ;
+
+        
+    
+    
+            var marker_590ca96e57238c8c45d158b44f142dc4 = L.marker(
+                [43.7363554, 11.2241434],
+                {}
+            ).addTo(marker_cluster_79da84b2bdfef2a27c43fdcde425c68a);
+        
+    
+            var icon_3b63da3e25540f25168fd889a240e009 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "house-medical", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_590ca96e57238c8c45d158b44f142dc4.setIcon(icon_3b63da3e25540f25168fd889a240e009);
+        
+    
+        var popup_92db56d624e99386a119b2871efc7f3a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_39d6f12ad49b7fc55743c7c01ace786d = $(`<div id="html_39d6f12ad49b7fc55743c7c01ace786d" style="width: 100.0%; height: 100.0%;">GIUSEPPE VEZZOSI  posti disponibili: 196   orario : Lun Mer Ven : 16:00 - 19:00(A); Mar Gio : 10:00 - 13:00(A);    telefono : 055-2048000  segreteria: 055-2048000 interno 6   indirizzo: VIA DEI GIANDONATI, 5, FIRENZE</div>`)[0];
+                popup_92db56d624e99386a119b2871efc7f3a.setContent(html_39d6f12ad49b7fc55743c7c01ace786d);
+            
+        
+
+        marker_590ca96e57238c8c45d158b44f142dc4.bindPopup(popup_92db56d624e99386a119b2871efc7f3a)
+        ;
+
+        
+    
+    
+            var marker_1f4b0ea44f8905536938b2c0188ae93c = L.marker(
+                [43.7667858, 11.3053182],
+                {}
+            ).addTo(marker_cluster_79da84b2bdfef2a27c43fdcde425c68a);
+        
+    
+            var icon_d3ab9f09f3b90d60864bfba71452909d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "house-medical", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_1f4b0ea44f8905536938b2c0188ae93c.setIcon(icon_d3ab9f09f3b90d60864bfba71452909d);
+        
+    
+        var popup_a32d68e1fcae8b7ad2c0523fa8298625 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_44ffd0c8f512bb2ca196fb28da8c958f = $(`<div id="html_44ffd0c8f512bb2ca196fb28da8c958f" style="width: 100.0%; height: 100.0%;">PIER LUIGI VIERI  posti disponibili: 0   orario : Lun : 14:30 - 18:00(A); Mar Ven : 10:00 - 14:00(A); Mer : 15:00 - 18:00(A); Gio : 14:15 - 17:45(A);    telefono : 0556505269 3338830363  segreteria: 0556505269   indirizzo: VIA GIOLITTI, 42, FIRENZE</div>`)[0];
+                popup_a32d68e1fcae8b7ad2c0523fa8298625.setContent(html_44ffd0c8f512bb2ca196fb28da8c958f);
+            
+        
+
+        marker_1f4b0ea44f8905536938b2c0188ae93c.bindPopup(popup_a32d68e1fcae8b7ad2c0523fa8298625)
+        ;
+
+        
+    
+    
+            var marker_4caeca53ec02a799dd698827936d6f56 = L.marker(
+                [43.7857311, 11.2491403],
+                {}
+            ).addTo(marker_cluster_79da84b2bdfef2a27c43fdcde425c68a);
+        
+    
+            var icon_c31b437d379c0856fce47c32fbe109e1 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "house-medical", "iconColor": "white", "markerColor": "orange", "prefix": "fa"}
+            );
+            marker_4caeca53ec02a799dd698827936d6f56.setIcon(icon_c31b437d379c0856fce47c32fbe109e1);
+        
+    
+        var popup_dd72adfaa24814269309b9198f313c42 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_1ff6899be3fe354ac5c308dce3a5a405 = $(`<div id="html_1ff6899be3fe354ac5c308dce3a5a405" style="width: 100.0%; height: 100.0%;">ELISABETTA VITALI  posti disponibili: 6   orario : Lun Gio : 15:00 - 19:00(A); Mar Ven : 10:00 - 13:00(A); Mer : 15:30 - 19:30(A);    telefono : 3881608889  segreteria: 055487082   indirizzo: VIA DELLE CINQUE GIORNATE, 34, FIRENZE</div>`)[0];
+                popup_dd72adfaa24814269309b9198f313c42.setContent(html_1ff6899be3fe354ac5c308dce3a5a405);
+            
+        
+
+        marker_4caeca53ec02a799dd698827936d6f56.bindPopup(popup_dd72adfaa24814269309b9198f313c42)
+        ;
+
+        
+    
+    
+            marker_cluster_79da84b2bdfef2a27c43fdcde425c68a.addTo(map_f4f782a8da9039d5e81b31667d28185c);
+        
+</script>
+</html>
