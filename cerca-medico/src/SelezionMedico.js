@@ -3,19 +3,27 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/esm/Row';
+import Col from 'react-bootstrap/esm/Col';
 import Badge from 'react-bootstrap/Badge';
-import { useGeosearch } from './services';
 
 
 function AmbulaTorio( {ambulatorio_data,idMedico, ambulatorioSelected, centroSetter}) {
   const idAmbu =  idMedico + "_" + ambulatorio_data.ubicazione
-  const indirizzo = ambulatorio_data.ubicazione
+  
   const ambuRef = useRef(null)
+  let studi = <><ListGroup.Item   key={ambulatorio_data.telefono + "_telefono"} as="li"   className="d-flex justify-content-between align-items-start"  >   {ambulatorio_data.telefono} </ListGroup.Item> </>
+  if (ambulatorio_data.telefono !== ambulatorio_data.segreteria && ambulatorio_data.segreteria) {
+    studi = <> <ListGroup.Item   key={ambulatorio_data.telefono+"_segreteria"}  as="li"     className="d-flex justify-content-between align-items-start"  >
+        {ambulatorio_data.telefono} </ListGroup.Item>
+        <ListGroup.Item  key={ambulatorio_data.segreteria}  as="li"
+         className="d-flex justify-content-between align-items-start"  >
+        {ambulatorio_data.segreteria}   </ListGroup.Item>  </> 
+  }
 
 
   function handleShowOnMap(e) {
     e.preventDefault();
-    console.log(e)
+    
     centroSetter(ambulatorio_data.ubicazione)
     
     
@@ -36,19 +44,8 @@ function AmbulaTorio( {ambulatorio_data,idMedico, ambulatorioSelected, centroSet
             <Card.Text>
                 {ambulatorio_data.orario}
             </Card.Text>
-        <ListGroup as="ol" >
-            <ListGroup.Item
-        as="li"
-        className="d-flex justify-content-between align-items-start"  >
-            {ambulatorio_data.telefono} 
-
-      </ListGroup.Item>
-            <ListGroup.Item
-        as="li"
-        className="d-flex justify-content-between align-items-start"  >
-            {ambulatorio_data.segreteria} 
-
-      </ListGroup.Item>
+        <ListGroup as="ol" key={idAmbu}>
+           {studi}
         </ListGroup>
         </Card.Body>
         </Card>
@@ -65,12 +62,12 @@ function BadgeDisponibilità({disponibilita}) {
     type = "success";
     text = "light"
   };
-  if (disponibilita <= 10 && disponibilita >= 0) {
+  if (disponibilita <= 10 && disponibilita >= 1) {
     type = "warning";
     text = "dark"
   };
-  if (disponibilita === 0 ) {
-    type = "danger";
+  if (disponibilita <= 0 ) {
+    type = "secondary";
     text  ="light"
   }
 return (
@@ -82,26 +79,12 @@ return (
 
 }
 
-function OnlyMedico({medico_data, ambulatori}) {
-    const nome_cognome = medico_data.nome + " " + medico_data.cognome;
-    console.log(medico_data.scelte_disponibili);
-return (
-    <Card>
-    <Card.Body>
-      <Card.Title>{nome_cognome} <BadgeDisponibilità disponibilita={medico_data.scelte_disponibili} /></Card.Title>
-      <Card.Text>
-      {medico_data.tipologia === "PLS" ? ("Pediatra"):("Medico")}  --- {medico_data.ambito}
-      </Card.Text>
-      <Button variant="primary">Mostra Ambulatori</Button>
-    </Card.Body>
-  </Card>
-)
-}
 
 
 
 
-function Ambulatori({ambulatori, showambulatori, idMedico, ambulatorioSelected, centroSetter={centroSetter}}) {
+
+function Ambulatori({ambulatori, showambulatori, idMedico, ambulatorioSelected, centroSetter}) {
 const ambushow = [];
 
 
@@ -109,7 +92,7 @@ const ambushow = [];
 ambulatori.forEach((ambulatorio) => {
   if (showambulatori === true | ambulatorioSelected === idMedico+ '_'+ambulatorio.ubicazione) {
     ambushow.push(
-      <AmbulaTorio ambulatorio_data={ambulatorio} idMedico={idMedico} ambulatorioSelected={ambulatorioSelected} centroSetter={centroSetter}/>
+      <AmbulaTorio ambulatorio_data={ambulatorio} idMedico={idMedico} key={idMedico + "_" + ambulatorio.ubicazione} ambulatorioSelected={ambulatorioSelected} centroSetter={centroSetter}/>
     )
   };
   if (showambulatori === false) {
@@ -130,8 +113,8 @@ return (
 export default function MeDicoCard({medico_data, medicoSelected, medicoSetter, centroSetter, ambulatorioSelected, ambulatorioSetter}) {
     const [showAmbulatori, setShowAmbulatori] = useState(false);
     const nome_cognome = medico_data.nome + " " + medico_data.cognome;
-    const ambulatori = [];
     const medRef = useRef(null)
+    const orari = []
 
     function handleshow(e) { 
       e.preventDefault();
@@ -150,6 +133,31 @@ export default function MeDicoCard({medico_data, medicoSelected, medicoSetter, c
       
 
     }
+    
+
+  function handleShowOnMap(e) {
+    e.preventDefault();
+    centroSetter(e.target.id)
+    
+    
+  
+  
+  }
+
+    medico_data.ambulatori.forEach((ambulatorio) => {
+      if (ambulatorio.orario) {
+
+      
+      orari.push(<ListGroup.Item
+        as="li" onClick={handleShowOnMap}  id ={ambulatorio.ubicazione} key = {medico_data.id + "_" + ambulatorio.ubicazione + "_item"}
+        className="d-flex justify-content-between align-items-start"  >
+        <Card.Text id ={ambulatorio.ubicazione} key = {medico_data.id + "_" + ambulatorio.ubicazione + "_card"}>{ambulatorio.ubicazione.split(",")[0]} : {ambulatorio.orario} </Card.Text>
+        </ListGroup.Item>
+       )
+      }
+
+
+    })
 
     if (medicoSelected === medico_data.id && medRef.current) {
       
@@ -161,13 +169,27 @@ export default function MeDicoCard({medico_data, medicoSelected, medicoSetter, c
         <Card key={nome_cognome} bg={medicoSelected === medico_data.id ? "success" : "ligth" } onClick={handleSelect}  style={{cursor : "pointer"}}
         ref={medRef}>
         <Card.Body>
-          <Card.Title>{nome_cognome} <BadgeDisponibilità disponibilita={medico_data.scelte_disponibili} /></Card.Title>
-          <Card.Text>
-          {medico_data.tipologia === "PLS" ? ("Pediatra"):("Medico")}  --- {medico_data.ambito}
-          </Card.Text>
+          < Row> 
+          <Col md={{ span : 3, order :'first' }} xs={{span : 3,display : "none", order : 'first' }} className="d-md-block d-none">
+          <Card.Img variant="top" src={medico_data.nome.split(" ")[0].at(-1).toLowerCase() !== "a" ? "/dottore_yes.jpg" :  "/female_doc.png" } />
+          </Col>
+          <Col >
+          <Card.Title >{nome_cognome} <BadgeDisponibilità disponibilita={medico_data.scelte_disponibili} /></Card.Title>
+          <Card.Subtitle>
+          {medico_data.tipologia === "PLS" ? ("Pediatra"):("Medico")}  --- {medico_data.ambito.split("-")[0]}
+          </Card.Subtitle>
+          <ListGroup as="ol" >
+          {orari}
+          </ListGroup>
+          </Col>
+          </Row>
+          < Row>
           <Button variant="primary" onClick={handleshow}>{!showAmbulatori ? 'Mostra Ambulatori' : 'Nascondi'}</Button>
+          <Col >
           <Ambulatori ambulatori={medico_data.ambulatori} showambulatori={showAmbulatori} idMedico={medico_data.id} 
-          centroSetter={centroSetter} ambulatorioSelected={ambulatorioSelected} />
+          centroSetter={centroSetter} ambulatorioSelected={ambulatorioSelected} key={medico_data.id} />
+        </Col>
+        </Row>
         </Card.Body>
       </Card>
     )

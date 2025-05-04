@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Cerca Medico",
+  "name": "Ricerca Medici & Pediatri Asl Toscana",
   "icons": [
     {
       "src": "favicon.ico",

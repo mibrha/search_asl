@@ -14,16 +14,16 @@ import MarkerClusterGroup from 'react-leaflet-cluster';
 
 function useFaIcon(disponibilita, idMedico, medicoSelected) {
     var colorDisponibilità = "green"
-    if (disponibilita <= 10 && disponibilita !== 0 ) {
+    if (disponibilita <= 10 && disponibilita >= 1 ) {
         colorDisponibilità = "orange"
     }
-    if (disponibilita === 0) {
-        colorDisponibilità = "red"
+    if (disponibilita <= 0) {
+        colorDisponibilità = "grey"
     }
     var iconHTML = renderToString(<FontAwesomeIcon icon={faHouseMedical} color={colorDisponibilità}  size="2x" pull="left" /> )
     
     if (idMedico === medicoSelected) {
-        console.log("match porco dio", idMedico, medicoSelected)
+        
         iconHTML = renderToString(<FontAwesomeIcon icon={faHouseMedical} className="fa-solid fa-house-medical fa-bounce" color={colorDisponibilità}  size="2x" pull="left" 
              style={{"--fa-bounce-land-scale-x": "1.2",
                 "--fa-bounce-land-scale-y": ".8",
@@ -50,7 +50,7 @@ function useFaIcon(disponibilita, idMedico, medicoSelected) {
 
 
 function MapMarker({indirizzo, nomeMedico, orari, disponibilita, idMedico, medicoSelected, medicoSetter, ambulatorioSelected, ambulatorioSetter, centroSetter }) {
-    const idAmbu =  idMedico + "_" + indirizzo;
+    const idAmbu =  idMedico + "_" + indirizzo + "_marker";
     const [ position, , ] = useGeosearch(indirizzo)
     const [markerPosition, setMarkerPosition ] = useState(null)
     const iCon = useFaIcon(disponibilita, idMedico, medicoSelected)
@@ -60,13 +60,13 @@ function MapMarker({indirizzo, nomeMedico, orari, disponibilita, idMedico, medic
     
 
     
-    console.log("posizione",  indirizzo)
+   
     
 
     
     useEffect(  ()=> {
         if (position !== null) {
-            console.log("i change the marer position", position)
+            
         setMarkerPosition( [position.long, position.lat]);
 
     }}, [position])
@@ -74,7 +74,6 @@ function MapMarker({indirizzo, nomeMedico, orari, disponibilita, idMedico, medic
     
    
     function handleambulatorio(e) {
-        console.log(e.target.options.id)
         if (ambulatorioSelected !== e.target.options.id ) {
             medicoSetter(e.target.options.id.split('_')[0])
             ambulatorioSetter(idAmbu)
@@ -92,10 +91,10 @@ function MapMarker({indirizzo, nomeMedico, orari, disponibilita, idMedico, medic
         
             attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'>
                 <Popup>
-                   {nomeMedico} <br /> {orari} <br /> {disponibilita}
+                   {nomeMedico} <br /> {orari} <br /> Posti disponibili: {disponibilita}
     
                 </Popup>
-                <Tooltip>      {nomeMedico}  {disponibilita}</Tooltip>
+                <Tooltip>      {nomeMedico} Posti: {disponibilita}</Tooltip>
     
             </Marker>
             </>
@@ -132,7 +131,7 @@ function Recenter({location}) {
 
 
 
-export default function Mappissima({medicData, comune, selectedMedico, medicoSetter, ambulatorioSelected, ambulatorioSetter, centro, centroSetter, location }) {
+export default function Mappissima({medicData, comune, selectedMedico, medicoSetter, ambulatorioSelected, ambulatorioSetter, centro, centroSetter, location, show }) {
     
     /**const comuneLoc = useGeosearch(comune); **/
     const [markers, setMakers] = useState([])
@@ -144,33 +143,30 @@ export default function Mappissima({medicData, comune, selectedMedico, medicoSet
         
         
 
-            
-        console.log("i reloaded");    
+           
         medicData.forEach((medico) => { 
         const nomeMedico = medico.nome + " " + medico.cognome;
        
          medico.ambulatori.forEach( (ambulatorio) => {  
            
             loadMarker.push( < MapMarker indirizzo={ambulatorio.ubicazione} nomeMedico={nomeMedico} orari={ambulatorio.orario} disponibilita={medico.scelte_disponibili}
-                idMedico={medico.id} medicoSelected={selectedMedico} medicoSetter={medicoSetter} key={ambulatorio.ubicazione}
+                idMedico={medico.id} medicoSelected={selectedMedico} medicoSetter={medicoSetter} key={medico.id + "_" + ambulatorio.ubicazione}
                ambulatorioSelected={ambulatorioSelected} ambulatorioSetter={ambulatorioSetter} centroSetter={centroSetter} /> )
         } )
        }
 
     
        );
-
        setMakers(loadMarker);
     }, [medicData, selectedMedico, ambulatorioSelected, ambulatorioSetter, medicoSetter, centroSetter])
 
-   
     
-    console.log("mappissima", selectedMedico, centro,comune, markers[0])
+    
+    
 
-     if (centro !== null && markers.length >=1 ) {
+     if (centro !== null && markers.length >=1 && show ) {
     return (
-       
-        <MapContainer key={medicData}  center={[11.2569291 , 43.7686976]} zoom={13} style={{ height: "50vh", width: "100%" }}  >
+         <MapContainer key={medicData}  center={[11.2569291 , 43.7686976]} zoom={13} style={{ height: "50vh", width: "100%" }}  >
             <TileLayer
     attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"   />

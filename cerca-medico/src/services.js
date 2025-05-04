@@ -35,7 +35,7 @@ export  function useGeosearch(searchText) {
 
             const provider = new EsriProvider() ;
             let loading = false;
-            const baseMaessage = 'no addrress found for' + ' ' + searchTerm
+            const baseMaessage = `no addrress found for  ${searchTerm}`
             setLocation(null);
             provider.search({query : searchTerm}).then( result => {
                 if (!loading) {
@@ -50,33 +50,11 @@ export  function useGeosearch(searchText) {
             return () => {
                 loading = true
             };}, [searchTerm] )
-            console.log(location)
         
             return [location , searchTerm, setSearchTerm]
             
             
-        /**    
-            async function fetchLocation() { 
-                setLocation(null);
-                const result = await provider.search({query : searchText})
-        .then( (respo) => {
-            
-        if (respo.length >=1) {
-           
-            setLocation({lat : respo[0]["x"], long : respo[0].y, address : respo[0].label})
-            console.log("got location", respo[0])
-            
-        }})
-        .catch(function (error) {
-            console.log(error);
-        });}
-
-        locat()
-        
-        }, [searhTerm]);
-        **/
-
-       
+    
     
 
 }
